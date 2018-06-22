@@ -1,0 +1,20 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head(${'Posts index page'})" />
+<body>
+<nav th:replace="fragments :: navbar"/>
+<div class="main">
+
+    <div class="card col-sm-3 post" th:each="post : ${posts}">
+        <div class="card-body">
+        <h5 th:text="${post.title}" class="card-title"/>
+        <p th:text="${post.body}" class="card-text"/>
+        <a th:href="@{/posts/{id}(id=${post.id})}" class="card-link">More</a>
+        </div>
+    </div>
+
+</div>
+
+<th:block th:replace="fragments :: scritps" />
+</body>
+</html>

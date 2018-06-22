@@ -1,0 +1,27 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head(${'Post show page'})" />
+<body>
+
+<div class="container">
+    <div class="jumbotron">
+    <form th:href="@{/posts/{id}/delete(id=${post.id})}" method="post" th:object="${post}">
+        Title:
+        <h1 th:text="*{title}" />
+        <br/>
+        ID:
+        <p th:text="*{id}" />
+        <br/>
+        Description:
+        <p th:text="*{body}" />
+        <br/>
+        <input type="submit" value="Delete"/>
+    </form>
+    </div>
+
+
+</div>
+
+<th:block th:replace="fragments :: scritps" />
+</body>
+</html>

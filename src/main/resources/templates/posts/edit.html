@@ -1,0 +1,23 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head(${'Post show page'})" />
+<body>
+
+<div class="container">
+    <form th:href="@{/posts/{id}/edit(id=${post.id})}" method="post" th:object="${post}">
+        Title:
+        <input th:field="*{title}" type="text"/>
+        <br/>
+        ID:
+        <input th:field="*{id}" type="text"/>
+        <br/>
+        Description:
+        <input th:field="*{body}" type="text" />
+        <br/>
+        <input type="submit" />
+    </form>
+</div>
+
+<th:block th:replace="fragments :: scritps" />
+</body>
+</html>

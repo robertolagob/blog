@@ -1,0 +1,24 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head(${'Posts create page'})" />
+<body>
+
+<div class="container">
+    <h1>Here are all the posts!</h1>
+<div>
+    <form th:href="@{/posts/create(post=${post})}" method="post" th:object="${post}">
+        Title:
+        <input th:field="*{title}" />
+        <br/>
+        Description:
+        <input th:field="*{body}" />
+        <br/>
+        <input type="submit" />
+    </form>
+</div>
+
+</div>
+
+<th:block th:replace="fragments :: scritps" />
+</body>
+</html>

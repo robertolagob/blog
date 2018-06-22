@@ -1,0 +1,20 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head(${'Post show page'})" />
+<body>
+
+<div class="container">
+    <div class="jumbotron">
+
+    <h1 th:text="${post.title}" class="jumbotron-title"/>
+
+    <p th:text="${post.body}" class="jumbotron-text" />
+
+    <a th:href="@{/posts/{id}/delete(id=${post.id})}" class="card-link">Delete</a>
+    <a th:href="@{/posts/{id}/edit(id=${post.id})}" class="card-link">Edit</a>
+    </div>
+</div>
+
+<th:block th:replace="fragments :: scritps" />
+</body>
+</html>
