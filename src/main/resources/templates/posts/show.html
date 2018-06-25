@@ -9,6 +9,8 @@
     <h1 th:text="${post.title}" class="jumbotron-title"/>
 
     <p th:text="${post.body}" class="jumbotron-text" />
+        <p th:text="${post.user.email}"/>
+
 
     <a th:href="@{/posts/{id}/delete(id=${post.id})}" class="card-link">Delete</a>
     <a th:href="@{/posts/{id}/edit(id=${post.id})}" class="card-link">Edit</a>

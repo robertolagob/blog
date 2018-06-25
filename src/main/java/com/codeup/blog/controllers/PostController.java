@@ -1,23 +1,23 @@
 package com.codeup.blog.controllers;
 
-import com.codeup.blog.PostService;
+import com.codeup.blog.services.PostService;
 import com.codeup.blog.models.Post;
+import com.codeup.blog.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Arrays;
-import java.util.List;
 
 @Controller
 public class PostController {
 
     private PostService postService;
+    private UserRepository userRepository;
 
     // PostController constructor
     // Dependency Injection
-    public PostController(PostService postService) {
+    public PostController(PostService postService, UserRepository userRepository) {
         this.postService = postService;
+        this.userRepository=userRepository;
     }
 
     // mappings are the url
@@ -35,11 +35,8 @@ public class PostController {
 
     @GetMapping("/posts/{id}")
     public String showDetails(@PathVariable long id, Model view) {
-
         Post post = postService.findOne(id);
-
         view.addAttribute("post", post);
-
         return "posts/show";
     }
 
@@ -60,6 +57,7 @@ public class PostController {
         Post post = new Post();
         post.setTitle(title);
         post.setBody(body);
+        post.setUser(userRepository.first());//this must be replaced for a real user
         postService.save(post);
         model.addAttribute("post",post);
         return "posts/show";

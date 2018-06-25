@@ -1,12 +1,8 @@
-package com.codeup.blog;
+package com.codeup.blog.services;
 
 import com.codeup.blog.models.Post;
-import com.codeup.blog.models.PostsRepository;
-import org.springframework.data.repository.CrudRepository;
+import com.codeup.blog.repositories.PostsRepository;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class PostService {
