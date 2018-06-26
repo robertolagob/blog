@@ -25,7 +25,7 @@ public class UserController {
         return "users/sign-up";
     }
 
-    @PostMapping("/posts/sign-up")
+    @PostMapping("/sign-up")
     public String saveUser(@ModelAttribute User user){
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
