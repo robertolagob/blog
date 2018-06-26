@@ -1,7 +1,7 @@
 package com.codeup.blog.services;
 
 import com.codeup.blog.models.User;
-import com.codeup.blog.repositories.UserRepository;
+import com.codeup.blog.repositories.Users;
 import com.codeup.blog.models.UserWithRoles;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserDetailsLoader implements UserDetailsService {
-    private final UserRepository users; //this is my user repository (DAO)
+    private final Users users; //this is my user repository (DAO)
 
-    public UserDetailsLoader(UserRepository users) {
+    public UserDetailsLoader(Users users) {
         this.users = users;
     }
 

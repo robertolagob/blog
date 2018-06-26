@@ -6,7 +6,7 @@
 <div class="container">
     <h1>Here are all the posts!</h1>
 <div>
-    <form th:href="@{/posts/create(post=${post})}" method="post" th:object="${post}">
+    <form th:action="@{/posts/create(post=${post})}" method="post" th:object="${post}">
         Title:
         <input th:field="*{title}" />
         <br/>
